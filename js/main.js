@@ -3,12 +3,25 @@ const io = new IntersectionObserver(entries => {
   }, { threshold: 0.07 });
   document.querySelectorAll('.fade').forEach(el => io.observe(el));
 
-  function sendForm() {
-    const fn = document.getElementById('fn').value.trim();
-    const em = document.getElementById('em').value.trim();
-    const msg = document.getElementById('msg').value.trim();
-    if (!fn || !em || !msg) { alert('Vul alle verplichte velden in.'); return; }
-    document.getElementById('conf').style.display = 'block';
-    const btn = document.querySelector('.form-submit');
-    btn.disabled = true; btn.textContent = 'Verzonden ✓'; btn.style.opacity = '0.6';
+  // Formspree formulier met redirect naar bedanktpagina
+  const form = document.querySelector('form[action*="formspree"]');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          window.location.href = 'https://3r-en.nl/bedankt.html';
+        } else {
+          alert('Er is iets misgegaan. Probeer het opnieuw of neem direct contact op.');
+        }
+      } catch (error) {
+        alert('Er is iets misgegaan. Controleer uw internetverbinding.');
+      }
+    });
   }
