@@ -207,26 +207,28 @@
       </div>
       <div class="contact-right">
         <h3>Stuur een bericht</h3>
-        <div class="form-row">
-          <div class="form-group"><label>Voornaam</label><input type="text" id="fn" placeholder="Jan" /></div>
-          <div class="form-group"><label>Achternaam</label><input type="text" id="ln" placeholder="Jansen" /></div>
-        </div>
-        <div class="form-group"><label>E-mailadres</label><input type="email" id="em" placeholder="jan@locatie.nl" /></div>
-        <div class="form-group">
-          <label>Onderwerp</label>
-          <select id="sub">
-            <option value="">Selecteer...</option>
-            <option>Interim Management</option>
-            <option>Training, Coaching en Begeleiding</option>
-            <option>BSO Teamcoaching</option>
-            <option>Advies en Begeleiding</option>
-            <option>Integrale Kindcentra</option>
-            <option>Anders</option>
-          </select>
-        </div>
-        <div class="form-group"><label>Bericht</label><textarea id="msg" placeholder="Vertel me over uw situatie of vraagstuk..."></textarea></div>
-        <button class="btn btn-primary form-submit" onclick="sendForm()">Versturen</button>
-        <div class="form-confirm" id="conf">Bedankt voor uw bericht. Ik neem zo spoedig mogelijk contact met u op.</div>
+        <form name="contact" method="POST" data-netlify="true" action="/bedankt.html">
+          <input type="hidden" name="form-name" value="contact" />
+          <div class="form-row">
+            <div class="form-group"><label>Voornaam</label><input type="text" name="voornaam" placeholder="Jan" required /></div>
+            <div class="form-group"><label>Achternaam</label><input type="text" name="achternaam" placeholder="Jansen" required /></div>
+          </div>
+          <div class="form-group"><label>E-mailadres</label><input type="email" name="email" placeholder="jan@locatie.nl" required /></div>
+          <div class="form-group">
+            <label>Onderwerp</label>
+            <select name="onderwerp" required>
+              <option value="">Selecteer...</option>
+              <option>Interim Management</option>
+              <option>Training, Coaching en Begeleiding</option>
+              <option>BSO Teamcoaching</option>
+              <option>Advies en Begeleiding</option>
+              <option>Integrale Kindcentra</option>
+              <option>Anders</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Bericht</label><textarea name="bericht" placeholder="Vertel me over uw situatie of vraagstuk..." required></textarea></div>
+          <button class="btn btn-primary form-submit" type="submit">Versturen</button>
+        </form>
       </div>
     </div>
   </div>
