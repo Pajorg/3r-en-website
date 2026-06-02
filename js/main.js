@@ -25,3 +25,17 @@ const io = new IntersectionObserver(entries => {
       }
     });
   }
+
+
+// Hamburgermenu
+function toggleMenu() {
+  const nav = document.getElementById('nav-links');
+  nav.classList.toggle('open');
+}
+
+// Sluit menu als je op een link klikt
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('nav-links').classList.remove('open');
+  });
+});
