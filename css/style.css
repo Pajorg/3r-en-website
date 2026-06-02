@@ -299,3 +299,31 @@
       .hero-pillars { flex-direction: column; }
       .contact-left, .contact-right { padding: 2.5rem 1.5rem; }
     }
+/* Hamburgermenu mobiel */
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: var(--blue-dark);
+  padding: 0.25rem 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .nav-hamburger { display: block; }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    z-index: 999;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li { padding: 0.5rem 2rem; }
+}
