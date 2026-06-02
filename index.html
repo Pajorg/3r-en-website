@@ -14,13 +14,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
 <nav>
   <div class="nav-logo"><img src="images/logo.jpeg" alt="3R-EN" /></div>
-  <ul class="nav-links">
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu openen">&#9776;</button>
+  <ul class="nav-links" id="nav-links">
     <li><a href="#over-mij">Over mij</a></li>
     <li><a href="#diensten">Diensten</a></li>
     <li><a href="#ervaring">Ervaring</a></li>
@@ -215,7 +217,6 @@
       <div class="contact-right">
         <h3>Stuur een bericht</h3>
         <form action="https://formspree.io/f/xeedpyaw" method="POST">
-          <input type="hidden" name="_next" value="https://3r-en.nl/bedankt.html" />
           <div class="form-row">
             <div class="form-group"><label>Voornaam</label><input type="text" name="voornaam" placeholder="Jan" required /></div>
             <div class="form-group"><label>Achternaam</label><input type="text" name="achternaam" placeholder="Jansen" required /></div>
@@ -243,7 +244,7 @@
 </section>
 
 <footer>
-  <strong>3R-EN</strong> &nbsp;&middot;&nbsp; Rust, Reinheid en Regelmaat in de Kinderopvang &nbsp;&middot;&nbsp; &copy; 2025
+  <strong>3R-EN</strong> &nbsp;&middot;&nbsp; Rust, Reinheid en Regelmaat in de Kinderopvang &nbsp;&middot;&nbsp; &copy; 2026
 </footer>
 <script src="js/main.js"></script>
 </body>
